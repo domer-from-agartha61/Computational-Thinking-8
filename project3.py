@@ -6,7 +6,7 @@ from utils import *
 x1 = -100
 y1 = 50
 x2 = -100
-y2 = 30
+y2 = 100
 x3 = -100
 y3 = -50
 x4 = -100
@@ -43,10 +43,12 @@ for i in range(31):
  #Section 4 - Winner
  
  
-if x1 >= x2 and x1 >= x3 and x1 >= x4:
+if Eb >= tv and Eb >= As and Eb >= x4:
     print("player 1 wins!")
-elif
+elif As >= Eb and As >= tv and As >= x4:
     print("player 2 wins!")
-
-
+elif tv >= Eb and tv >= As and tv >= x4:
+    print("player 3 wins")
+elif x4 >= Eb and x4 >= tv and x4 >= As:
+    print("player 4 wins")
 turtle.exitonclick()
