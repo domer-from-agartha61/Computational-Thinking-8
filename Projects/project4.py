@@ -4,6 +4,7 @@ from utils import *
 
 # Section 1 - setup
 # TODO - set a background using set_background()
+mylist = []
 set_background("underwater")
 # TODO - create at least two variables and set their starting value. ex: cookies = 0
 Mortadella = 0
@@ -20,22 +21,27 @@ message_sprite.clear()
 # Section 2 - controls
 # TODO - define an action. ex: def my_control()
 def Mortadella_maker():
-    global Pizza_coin ,Mortadella 
+    global Pizza_coin ,Mortadella, mylist
     Pizza_coin += 1 
     x = random.randint(-200,200)
     y = random.randint(-200,200)           
-    create_sprite("Mortadella.gif")
+    m1 = create_sprite("Mortadella.gif",x,y)
+    mylist.append(m1)
 
 window.onkeypress(Mortadella_maker, "m")
 # When b clicked remove money and replace with tony suprano.
 def Gabagool_buyer():
-    global Pizza_coin, Gabagool
+    global Pizza_coin, Gabagool, mylist
     if Pizza_coin >= 20:
         Gabagool += 1
         Pizza_coin -= 20
-    x = random.randint(-100,100)
-    y = random.randint(-100,100)           
-    create_sprite("Gabagool.gif")
+        x = random.randint(-100,100)
+        y = random.randint(-100,100)
+        create_sprite("gabagool3.gif",x,y)
+        for i in range (20):
+            m1 = mylist.pop()
+            m1.hideturtle()
+    
 window.onkeypress(Gabagool_buyer, "b")
    
 
@@ -54,6 +60,9 @@ for i in range(1000000000):
     message_sprite.write(f"Pizza coin: {Pizza_coin}", font=("Arial", 24, "bold"))
     
     # TODO - put any automatic actions here
+    # if Gabagool_buyer == :
+    if i % 100 == 0:
+        Pizza_coin += Gabagool
 
 
     # OPTIONAL - use the message sprite to say a message
